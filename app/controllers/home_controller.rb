@@ -6,7 +6,6 @@ class HomeController < ApplicationController
 	def index
 	end
 	def calculate
-		#@res = params[:q]
 		File.open("./tmp/max_path/in.txt", "w") { |file| file.print params[:numbers]  }
 		d1 = DataChanger.new("./tmp/max_path/in.txt")
 		n1 = Node.new(d1.parse_data_array())

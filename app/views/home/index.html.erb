@@ -1,29 +1,10 @@
-<div>
-	<h1> Hello. Please Input a number Tree. {{mess + 'well'}} </h1>
-	<%= form_tag do %>
-		<p> Write down a number tree. </p>
-		<%= text_area_tag 'numbers', nil, :rows => 10, :cols => 30 %>
-		<%= submit_tag("Submit") %>
-	<% end %>
+<div ng-controller="maxPathController">
+	<h1> Hi! </h1>
+	<form numberTree class="simple-form">
+		<p> {{message}} </p>
+		<textarea ng-model="numbers1" rows="12" cols="30"></textarea>	
+	</form>
+	<p><input type="checkbox" ng-model="switchBox"> Use Server </input></p>
+	<button ng-click="sendData()"> Get Result </button>
+	<button ng-click="refresh()"> Refresh </button>
 </div>
- <script> 
- 	var d = [1, 2, 3, 4, 5, 6, 7, 8, 10, 0];
- 	console.log(d);
- 	var node1 = new Node(d);
- 	node1.init();
- 	//var m = new Data(d);
- 	node1.findMaxSumPath();
- 	//console.log();
- 	console.log(node1.getNodeMaxSum());
- 	console.log(node1.getNodeMaxPath());
-
- 	//console.log(m.makeNumArray(10));
- 	//console.log(m.makeMap(d));
- 	/*document.write(n.data);
- 	document.write("hello");
- 	//n.inputData(d);
- 	document.write(n.data[0]);
- 	document.write(d);
-	*/
-
- </script> </br>

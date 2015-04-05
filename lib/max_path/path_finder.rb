@@ -35,7 +35,7 @@ public
 					times_to_push -= 1
 					@num_cools += 1
 					last_push = i
-				else
+				elsif i != @num_of_numbers
 					str_to_push += " "
 				end
 			end

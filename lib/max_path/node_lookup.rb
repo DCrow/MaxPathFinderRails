@@ -12,6 +12,8 @@ class Node
 		@node_path = Array.new
 		@node_path.push 0
 		@went_back = false
+		@node_max_path = Array.new
+		@node_max_sum = 0
 	end
 
 private
@@ -19,9 +21,9 @@ private
 	@data_hash # Для хранения значений
 	@num_cools = 0 # Хранение значений столбцов в таблице
 	@node_sum = 0 # Сумма вершин предшествующих нынешней с учетом нынешней
-	@@node_max_sum = 0 # Максимальная сумма вершин. Для удобства одна на все древа.
+	@node_max_sum = 0 # Максимальная сумма вершин. Для удобства одна на все древа.
 	@curr_node = 0 # Вершина в которой мы находимся
-	@@node_max_path = Array.new # Путь максимальной суммы вершин @@node_max_sum. Для удобства одна на все древа.
+	@node_max_path = Array.new # Путь максимальной суммы вершин @node_max_sum. Для удобства одна на все древа.
  	@node_path = Array.new # Путь который мы использовали чтобы попасть в @curr_node
 	@node_stack = Array.new # Вершины от которых мы еще не посетили второй соседней вершины
 	@went_back = false # Для знания вернулись ли в вершину из которой не посетили второго соседа или нет.
@@ -83,17 +85,17 @@ private
 	# Проверить не является ли сумма на ныншнем пути наибольшей
 	def check_max_sum()
 
-		max_sum = [@node_sum,@@node_max_sum].max
+		max_sum = [@node_sum,@node_max_sum].max
 
 		if max_sum == @node_sum
-			(0..@@node_max_path.length).each do |i|
-				@@node_max_path.pop
+			(0..@node_max_path.length).each do |i|
+				@node_max_path.pop
 			end
 			(1..@node_path.length).each do |i|
-				@@node_max_path.push @node_path[i-1]
+				@node_max_path.push @node_path[i-1]
 			end
 
-			@@node_max_sum = max_sum
+			@node_max_sum = max_sum
 		end
 	end
 
@@ -120,12 +122,12 @@ public
 
 	# Возвращает путь максимальной суммы
 	def get_node_max_path()
-		return @@node_max_path
+		return @node_max_path
 	end
 
 	# Возвращает максимальную сумму
 	def get_node_max_sum()
-		return @@node_max_sum
+		return @node_max_sum
 	end
 
 end

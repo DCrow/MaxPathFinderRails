@@ -1,10 +1,13 @@
 <div ng-controller="maxPathController">
 	<h1> Hi! </h1>
-	<form numberTree class="simple-form">
-		<p> {{message}} </p>
-		<textarea ng-model="numbers1" rows="12" cols="30"></textarea>	
-	</form>
+	<p id='divSub'> {{message}} </p>
+
+		
+		<form numberTree class="simple-form"  ng-hide="sent">
+			<textarea ng-model="numbers1" rows="12" cols="30"></textarea>	
+		</form>
+	
 	<p><input type="checkbox" ng-model="switchBox"> Use Server </input></p>
-	<button ng-click="sendData()"> Get Result </button>
+	<button ng-click="sendData()" ng-model="sent"> Get Result </button>
 	<button ng-click="refresh()"> Refresh </button>
 </div>
